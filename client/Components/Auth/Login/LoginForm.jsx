@@ -8,7 +8,7 @@ export default class LoginForm extends React.Component {
         email = this.refs.login_email.value.trim();
         password = this.refs.login_password.value.trim();
         
-        Meteor.loginWithPassword( email, password, FlowRouter.go('/') );
+        Meteor.loginWithPassword( email, password );
     }
     
     render(){
