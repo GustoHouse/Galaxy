@@ -29,11 +29,7 @@ var AuthenticatedRoute = FlowRouter.group({
             
             route = FlowRouter.current();
             
-            if( route.path != "/login" ){
-                Session.set("redirectAfterLogin", route.path);
-            }else{
-                Session.set("redirectAfterLogin", "/");
-            }
+            Session.set("redirectAfterLogin", route.path);
             
             FlowRouter.go('/login');
             
@@ -42,19 +38,6 @@ var AuthenticatedRoute = FlowRouter.group({
     }]
     
 });
-
-
-// After Authentication
-Accounts.onLogin(function(){
-    
-    redirect = Session.get("redirectAfterLogin");
-
-    if( redirect != "" && redirect != "/login" && redirect != undefined){
-        FlowRouter.go(redirect);
-    }
-    
-});
-
 
 
 // Routes
