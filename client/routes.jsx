@@ -13,11 +13,11 @@ import LoginForm from './Components/Auth/Login/LoginForm.jsx';
 
 // Interface Components
 import Menu from './Components/Menu/Menu.jsx';
-import Breadcrumbs from './Components/Breadcrumbs/Breadcrumbs.jsx';
 
 // Content Components
 import ProjectList from './Components/Projects/ProjectList.jsx';
 import NewProject from './Components/Projects/NewProject.jsx';
+import Members from './Components/Members/Members.jsx';
 
 // Route Groups
 var PublicRoute = FlowRouter.group();
@@ -61,7 +61,6 @@ AuthenticatedRoute.route('/', {
     action(){
         mount(DefaultLayout,{
             menu: <Menu />,
-            breadcrumbs: <Breadcrumbs / >,
             content: <ProjectList />       
         })
     }
@@ -71,8 +70,16 @@ AuthenticatedRoute.route('/new', {
     action(){
         mount(ContentLayout,{
             menu: <Menu />,
-            breadcrumbs: <Breadcrumbs / >,
             content: <NewProject />
+        })
+    }
+});
+        
+AuthenticatedRoute.route('/members', {
+    action(){
+        mount(DefaultLayout,{
+            menu: <Menu />,
+            content: <Members />
         })
     }
 });

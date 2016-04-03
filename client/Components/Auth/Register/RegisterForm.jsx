@@ -11,20 +11,26 @@ export default class RegisterForm extends React.Component {
         organization = this.refs.register_organization.value.trim();
         email = this.refs.register_email.value.trim(); 
         password = this.refs.register_password.value.trim(); 
-
-        Accounts.createUser({
-            email: email,
-            password: password,
-            profile:{
-                firstName: first,
-                lastName: last,
-                type: "Organizer",
-                organization: organization
-            }
-        });
-
-        FlowRouter.go('/');
+        date = new Date();
         
+        Meteor.call('createOrganization', organization, date, (error, result)=>{
+            
+            Accounts.createUser({
+                email: email,
+                password: password,
+                profile:{
+                    firstName: first,
+                    lastName: last,
+                    type: "Organizer",
+                    organization: result,
+                    created: date
+                }
+            });
+            
+            FlowRouter.go('/');
+            
+        });
+     
     }
     
     render(){

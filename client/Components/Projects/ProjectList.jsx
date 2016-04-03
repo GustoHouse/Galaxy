@@ -10,7 +10,7 @@ export default class ProjectList extends TrackerReact(React.Component) {
         
         this.state = {
             subscription: {
-                projects: Meteor.subscribe("allProjects")
+                projects: Meteor.subscribe("myProjects")
             }
         }
     }

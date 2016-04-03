@@ -11,15 +11,34 @@ export default class Menu extends React.Component {
     render(){
         return(
             
-            <nav>
-                <a href="/">Projects</a>
-                <a href="/">Activiy</a>
-                <a href="/">Notes</a>
-                <a href="/">Tasks</a>
-                <a href="/">Account</a>
-                <a href="/">Admin</a>
-                <a onClick={this.logout}>Logout</a>
+            <nav id="menu">
+            
+                <a href="/" className="logo">Galaxy</a>
+            
+                <div className="nav-projects">
+                    <a href="/">Project Name</a>
+                    <span>&nbsp;</span>
+                    <a href="/">#</a>
+                </div>
+
+                <div className="nav-primary">
+
+                    <a href="/">Activity</a>
+                    <a href="/">Notes</a>
+                    <a href="/">Tasks</a>
+                    <a href="/members">Members</a>
+
+                </div>
+
+                <div className="nav-secondary">
+                    <a href="/account">Account</a>
+                    <a href="/settings">Settings</a>
+                    <a onClick={this.logout}>Logout</a>
+                </div>
+
             </nav>
+            
+            
     
         )
     }

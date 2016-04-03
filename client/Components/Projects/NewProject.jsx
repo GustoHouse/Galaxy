@@ -6,10 +6,15 @@ export default class NewProject extends React.Component {
         
         event.preventDefault();
         
-        title = this.refs.np_title.value.trim(); 
+        projectInfo = {
+            title: this.refs.np_title.value.trim(),
+            user: Meteor.user(),
+            organization: Meteor.user().profile.organization,
+            date: new Date()
+        }
         
-        Meteor.call('addProject', title, ()=>{
-            FlowRouter.go('/');
+        Meteor.call('addProject', projectInfo, (error, result)=>{
+            FlowRouter.go('/')
         });
         
     }
