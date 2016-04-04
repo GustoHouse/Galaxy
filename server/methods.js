@@ -5,8 +5,10 @@ Meteor.methods({
         return Projects.insert({
             date: project.date,
             title: project.title,
-            creator: project.user._id,
-            organization: project.user.profile.organization
+            description: project.description,
+            creator: project.creator,
+            organization: project.organization,
+            members: project.members
         });
         
     },

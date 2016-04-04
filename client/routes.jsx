@@ -18,6 +18,7 @@ import Menu from './Components/Menu/Menu.jsx';
 import ProjectList from './Components/Projects/ProjectList.jsx';
 import NewProject from './Components/Projects/NewProject.jsx';
 import Members from './Components/Members/Members.jsx';
+import Member from './Components/Members/Member.jsx';
 
 // Route Groups
 var PublicRoute = FlowRouter.group();
@@ -25,7 +26,7 @@ var AuthenticatedRoute = FlowRouter.group({
                     
     triggersEnter: [function(context, redirect) {
 
-        if( Meteor.userId() == null ){
+        if( !Meteor.userId() ){
             
             route = FlowRouter.current();
             
@@ -83,3 +84,12 @@ AuthenticatedRoute.route('/members', {
         })
     }
 });
+        
+AuthenticatedRoute.route('/member/:_id', {
+    action(params){
+        mount(DefaultLayout,{
+            menu: <Menu />,
+            content: <Member member={params._id} />
+        })
+    }
+});        

@@ -17,8 +17,6 @@ export default class Menu extends React.Component {
             
                 <div className="nav-projects">
                     <a href="/">Project Name</a>
-                    <span>&nbsp;</span>
-                    <a href="/">#</a>
                 </div>
 
                 <div className="nav-primary">

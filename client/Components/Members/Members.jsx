@@ -11,7 +11,7 @@ export default class Members extends TrackerReact(React.Component) {
            
         this.state = {
             subscription: {
-                members: Meteor.subscribe("orgMembers", "2uRCeLvJ2u6RKWKzW")
+                members: Meteor.subscribe("orgMembers")
             }
         }
             

@@ -25,9 +25,13 @@ export default class RegisterForm extends React.Component {
                     organization: result,
                     created: date
                 }
+            }, function(){
+                
+                FlowRouter.go('/');
+                
             });
             
-            FlowRouter.go('/');
+            
             
         });
      

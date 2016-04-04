@@ -2,8 +2,12 @@ Meteor.publish("myProjects", function(){
     return Projects.find();
 });
 
-Meteor.publish("orgMembers", function(organization) {
+Meteor.publish("orgMembers", function() {
     
-    return Meteor.users.find();
+    if (this.userId) {
+        var user = Meteor.users.findOne(this.userId); 
+        var org = user.profile.organization; 
+        return Meteor.users.find({'profile.organization': org});
+    }
         
 });

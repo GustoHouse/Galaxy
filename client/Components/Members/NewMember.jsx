@@ -28,6 +28,7 @@ export default class NewProject extends React.Component {
             this.refs.nm_first.value = "";
             this.refs.nm_last.value = "";
             this.refs.nm_email.value = "";
+            this.refs.nm_first.focus();
         });
         
     }

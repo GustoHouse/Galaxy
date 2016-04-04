@@ -4,7 +4,7 @@ export default class SingleMember extends Component {
     render(){
         return( 
 
-            <a className="single-member third" href={`/${this.props.member._id}/edit`}>
+            <a className="single-member third" href={`/member/${this.props.member._id}/`}>
                 <span className="member-image"></span>
                 <strong>
                     <span>{this.props.member.profile.firstName}&nbsp;{this.props.member.profile.lastName}</span>

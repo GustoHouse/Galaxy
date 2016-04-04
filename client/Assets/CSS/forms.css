@@ -5,7 +5,7 @@
     background: #fff;
     font-size: 24px;
     font-family: "ingra-2",sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     margin-bottom: 30px;
     outline: none;
     resize: none;
@@ -17,29 +17,89 @@
 #content textarea {
     -webkit-appearance: none;
     border: 0;
-    background: transparent;
+    background: #fff;
     font-size: 24px;
     font-family: "ingra-2",sans-serif;
-    font-weight: 100;
-    border-bottom: 1px solid #CCC;
+    font-weight: 300;
     margin-bottom: 30px;
-    outline:none;
-    resize:none;
-    height:200px;
+    outline: none;
+    resize: none;
+    padding: 0px 20px;
+    height: 200px;
+    line-height: 60px;
 }
 
-#content input.nm-button[type="submit"]{
+#content input[type="submit"]{
     -webkit-appearance: none;
     border: 0px;
     background: #0071bc;
     color: #fff;
     font-family: "ingra-2",sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     border-radius: 5px;
     cursor: pointer;
     height: 60px;
     line-height: 60px;
     text-align: center;
+    padding: 0 45px;
+    font-size: 24px;
+    margin-top:30px;
+}
+
+#content input.nm-button[type="submit"]{
+    font-weight: 100;
     padding: 0 30px;
     font-size: 60px;
+    margin-top:0px;
+}
+
+#content [type="checkbox"]:not(:checked),
+#content [type="checkbox"]:checked{
+    position: absolute;
+    left: -9999px;
+}
+
+#content [type="checkbox"]:not(:checked) + label,
+#content [type="checkbox"]:checked + label{
+    display: block;
+    padding: 15px 0 15px 60px;
+    position: relative;
+    height: 75px;
+    line-height: 45px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#content [type="checkbox"]:not(:checked) + label:before,
+#content [type="checkbox"]:checked + label:before{
+    content:'';
+    width:45px;
+    height:45px;
+    background:#fff;
+    border-radius:5px;
+    position:absolute;
+    left:0px;
+    top:15px;
+}
+
+#content [type="checkbox"]:not(:checked) + label:after,
+#content [type="checkbox"]:checked + label:after{
+    content: '✔';
+    width: 45px;
+    height: 45px;
+    background: #0071bc;
+    color:#fff;
+    opacity:0;
+    transition:opacity 300ms ease;
+    position: absolute;
+    border-radius:5px;
+    left: 0px;
+    top: 15px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#content [type="checkbox"]:checked + label:after{
+    opacity:1 !important;
 }
