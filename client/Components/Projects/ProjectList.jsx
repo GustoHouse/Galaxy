@@ -25,17 +25,39 @@ export default class ProjectList extends TrackerReact(React.Component) {
     
     render(){
         
-        return(
-            <div id="project-list">
+        if( Meteor.user() ){
             
-                {this.projects().map( (project) => {
-                    return <SingleProject key={project._id} project={project} /> 
-                })}
-    
-                <a className="new-project" href="/new">Add Project</a>
+            return(
+                <div id="project-list">
 
-            </div>
-        )
+                    {this.projects().map( (project) => {
+                
+                        if( Meteor.user().profile.type == "Organizer" ){
+                            
+                            return <SingleProject key={project._id} project={project} /> 
+                            
+                        }else{
+                            
+                            if( project.members.indexOf(Meteor.userId()) != -1 ){
+                                return <SingleProject key={project._id} project={project} />
+                            } 
+                            
+                        }
+                        
+                    })}
+
+                    <a className="new-project" href="/new">Add Project</a>
+
+                </div>
+            )
+            
+        }else{
+            return(
+                <div>Loading...</div>
+            )
+        }
+        
+        
     }
 
 }

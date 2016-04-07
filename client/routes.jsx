@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import {mount} from 'react-mounter';
 
 // Layouts
@@ -61,7 +61,7 @@ PublicRoute.route('/login', {
 AuthenticatedRoute.route('/', {
     action(){
         mount(DefaultLayout,{
-            menu: <Menu />,
+            menu: <Menu main="false" />,
             content: <ProjectList />       
         })
     }
@@ -70,7 +70,7 @@ AuthenticatedRoute.route('/', {
 AuthenticatedRoute.route('/new', {
     action(){
         mount(ContentLayout,{
-            menu: <Menu />,
+            menu: <Menu main="false" />,
             content: <NewProject />
         })
     }
@@ -79,7 +79,7 @@ AuthenticatedRoute.route('/new', {
 AuthenticatedRoute.route('/members', {
     action(){
         mount(DefaultLayout,{
-            menu: <Menu />,
+            menu: <Menu main="false" />,
             content: <Members />
         })
     }
@@ -88,7 +88,7 @@ AuthenticatedRoute.route('/members', {
 AuthenticatedRoute.route('/member/:_id', {
     action(params){
         mount(DefaultLayout,{
-            menu: <Menu />,
+            menu: <Menu main="false" />,
             content: <Member member={params._id} />
         })
     }

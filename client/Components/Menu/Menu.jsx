@@ -9,35 +9,71 @@ export default class Menu extends React.Component {
     }
     
     render(){
-        return(
+        
+        if( this.props.main ){
             
-            <nav id="menu">
+            return(
+
+                <nav id="menu">
+
+                    <a href="/" className="logo">Galaxy</a>
+
+                    <div className="nav-projects">
+                        <a href="/">Project Name</a>
+                    </div>
+
+                    <div className="nav-primary">
+
+                        <a href="/">Activity</a>
+                        <a href="/">Notes</a>
+                        <a href="/">Tasks</a>
+
+                    </div>
+
+                    <div className="nav-secondary">
+                        <a href="/members">Members</a>
+                        <a href="/account">Account</a>
+                        <a href="/settings">Settings</a>
+                        <a onClick={this.logout}>Logout</a>
+                    </div>
+
+                </nav>
+
+            )
             
-                <a href="/" className="logo">Galaxy</a>
+        }else{
             
-                <div className="nav-projects">
-                    <a href="/">Project Name</a>
-                </div>
+            return(
 
-                <div className="nav-primary">
+                <nav id="menu">
 
-                    <a href="/">Activity</a>
-                    <a href="/">Notes</a>
-                    <a href="/">Tasks</a>
-                    <a href="/members">Members</a>
+                    <a href="/" className="logo">Galaxy</a>
 
-                </div>
+                    <div className="nav-projects">
+                        <a href="/">Project Name</a>
+                    </div>
 
-                <div className="nav-secondary">
-                    <a href="/account">Account</a>
-                    <a href="/settings">Settings</a>
-                    <a onClick={this.logout}>Logout</a>
-                </div>
+                    <div className="nav-primary nav-disabled">
 
-            </nav>
+                        <a>Activity</a>
+                        <a>Notes</a>
+                        <a>Tasks</a>
+
+                    </div>
+
+                    <div className="nav-secondary">
+                        <a href="/members">Members</a>
+                        <a href="/account">Account</a>
+                        <a href="/settings">Settings</a>
+                        <a onClick={this.logout}>Logout</a>
+                    </div>
+
+                </nav>
+
+            )
             
-            
-    
-        )
+        }
+        
+        
     }
 }

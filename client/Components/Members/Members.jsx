@@ -26,24 +26,50 @@ export default class Members extends TrackerReact(React.Component) {
     }
     
     render(){
-        return(
-            
-            <div id="members">
-            
-                <NewMember />
-            
-                <h1>Members</h1>
+        
+        if( Meteor.user() && Meteor.user().profile.type == "Organizer" ){
+             
+                return(
 
-                <div id="member-list">
+                    <div id="members">
 
-                    {this.members().map( (member) => {
-                        return <SingleMember key={member._id} member={member} /> 
-                    })}
+                        <NewMember />
+
+                        <h1>Members</h1>
+
+                        <div id="member-list">
+
+                            {this.members().map( (member) => {
+                                return <SingleMember key={member._id} member={member} /> 
+                            })}
+
+                        </div>
+
+                    </div>
+
+                )
+            
+        }else{
+            
+            return(
+
+                <div id="members">
+
+                    <h1>Members</h1>
+
+                    <div id="member-list">
+
+                        {this.members().map( (member) => {
+                            return <SingleMember key={member._id} member={member} /> 
+                        })}
+
+                    </div>
 
                 </div>
-                      
-            </div>
-                    
-        )
+
+            )
+            
+        }
+
     }
 }

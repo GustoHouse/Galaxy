@@ -10,7 +10,7 @@ export default class NewProject extends React.Component {
         for( var i=0; i < 8; i++ )
             text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-        return text;
+        return "password";
     }
     
     addMember(event){
